@@ -1,0 +1,5 @@
+discord.py[voice]~=1.6
+PyNaCl
+mutagen
+opuslib
+python-dotenv
