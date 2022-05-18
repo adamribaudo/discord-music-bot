@@ -3,11 +3,18 @@ from discord.ext import commands
 from discord import PCMAudio
 import os
 from dotenv import load_dotenv
+from flask import Flask
+from _thread import *
 
+app = Flask(__name__)
 load_dotenv()
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
 # Create bot
 client = commands.Bot(command_prefix='!')
+
+@app.route("/")
+def hello_world():
+    return "<p>200 Success</p>"
 
 # Startup Information
 @client.event
@@ -38,4 +45,4 @@ async def leave(ctx, empty_queue=False):
     if voice_client:
         await voice_client.disconnect()
 
-client.run(DISCORD_TOKEN)
+start_new_thread ( client.run, (DISCORD_TOKEN,) )
