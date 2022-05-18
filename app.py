@@ -7,7 +7,7 @@ from flask import Flask
 from _thread import *
 
 app = Flask(__name__)
-load_dotenv()
+#load_dotenv()
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
 # Create bot
 client = commands.Bot(command_prefix='!')
