@@ -17,8 +17,6 @@ async def on_ready():
  
 def create_audio_source():
     audio_source = PCMAudio(open('test2.wav', mode='rb'))
-    #audio_source = FFmpegPCMAudio('test.mp3', before_options=f'-nostdin -ss 0',options='-vn -b:a 128k -af bass=g=2')
-    #audio_source = PCMVolumeTransformer(audio_source)
     return audio_source
 
 @client.command(aliases=['paly', 'p', 'P', 'pap', 'pn', 'play_next', 'playnext'])
