@@ -39,8 +39,10 @@ async def play(ctx):
 
     def after_play(error):
         if not voice_client.is_playing():
+            print("Starting voice_client.play")
             voice_client.play(create_audio_source(), after = after_play)
 
+    print("Starting voice_client.play")
     voice_client.play(create_audio_source(), after = after_play)
     
 @client.command(aliases=['disconnect', 'dismiss', 'dc'])
