@@ -51,6 +51,5 @@ async def leave(ctx, empty_queue=False):
         await voice_client.disconnect()
 
 if __name__ == '__main__':
-    start_new_thread ( client.run, (DISCORD_TOKEN,) )
-    app.run(host="0.0.0.0", port=PORT, debug=True)
-    
+    start_new_thread( app.run , ('0.0.0.0',PORT) )
+    client.run(DISCORD_TOKEN)
