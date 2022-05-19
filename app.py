@@ -12,10 +12,11 @@ if find_dotenv():
     load_dotenv()
 
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
-print(DISCORD_TOKEN)
+PORT = os.getenv("PORT")
+
 # Create bot
 client = commands.Bot(command_prefix='!')
-
+    
 @app.route("/")
 def hello_world():
     return "<p>200 Success</p>"
@@ -49,4 +50,7 @@ async def leave(ctx, empty_queue=False):
     if voice_client:
         await voice_client.disconnect()
 
-start_new_thread ( client.run, (DISCORD_TOKEN,) )
+if __name__ == '__main__':
+    start_new_thread ( client.run, (DISCORD_TOKEN,) )
+    app.run(host="localhost", port=PORT, debug=True)
+    
