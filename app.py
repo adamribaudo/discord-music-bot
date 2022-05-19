@@ -2,13 +2,17 @@ import discord
 from discord.ext import commands
 from discord import PCMAudio
 import os
-from dotenv import load_dotenv
+from dotenv import load_dotenv, find_dotenv
 from flask import Flask
 from _thread import *
 
 app = Flask(__name__)
-#load_dotenv()
+
+if find_dotenv():
+    load_dotenv()
+
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
+print(DISCORD_TOKEN)
 # Create bot
 client = commands.Bot(command_prefix='!')
 
