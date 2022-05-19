@@ -52,5 +52,5 @@ async def leave(ctx, empty_queue=False):
 
 if __name__ == '__main__':
     start_new_thread ( client.run, (DISCORD_TOKEN,) )
-    app.run(host="localhost", port=PORT, debug=True)
+    app.run(host="0.0.0.0", port=PORT, debug=True)
     
