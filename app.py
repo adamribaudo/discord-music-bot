@@ -11,7 +11,6 @@ import sys
 if find_dotenv():
     load_dotenv()
 
-
 BOT_PROFILE = sys.argv[1] # First argument should be an identifier for the bot. 
 # This will be used to pull the discord token, the voice channel name, and the music folder
 MUSIC_FOLDER = BOT_PROFILE
@@ -50,8 +49,6 @@ async def play(ctx):
     else:
         # If playing, then stop and call after_play()
         voice_client.stop()
-        
-
     
 @client.command(aliases=['disconnect', 'dismiss', 'dc'])
 async def leave(ctx, empty_queue=False):
