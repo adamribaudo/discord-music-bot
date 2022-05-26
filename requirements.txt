@@ -3,4 +3,3 @@ PyNaCl
 mutagen
 opuslib
 python-dotenv
-flask
