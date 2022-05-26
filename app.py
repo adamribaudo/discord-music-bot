@@ -28,10 +28,11 @@ def create_audio_source():
     all_tracks = [f for f in listdir('music') if isfile(join('music', f))]
     selected_track = random.choice(all_tracks)
     print("Selected " + selected_track)
-    audio_source = PCMAudio(open(os.path.join('music',selected_track), mode='rb'))
+    #audio_source = PCMAudio(open(os.path.join('music',selected_track), mode='rb'))
+    audio_source = discord.FFmpegPCMAudio(source=os.path.join('music',selected_track),executable='ffmpeg')
     return audio_source
 
-@client.command(aliases=['paly', 'p', 'P', 'pap', 'pn', 'play_next', 'playnext'])
+@client.command(aliases=['next','paly', 'p', 'P', 'pap', 'pn', 'play_next', 'playnext'])
 async def play(ctx):
     guild = ctx.guild
     voice_client: discord.VoiceClient = guild.voice_client
@@ -41,8 +42,14 @@ async def play(ctx):
         if not voice_client.is_playing():
             voice_client.play(create_audio_source(), after = after_play)
 
-    print("Starting voice_client.play")
-    voice_client.play(create_audio_source(), after = after_play)
+    if not voice_client.is_playing():
+        # If not playing, then play
+        voice_client.play(create_audio_source(), after = after_play)
+    else:
+        # If playing, then stop and call after_play()
+        voice_client.stop()
+        
+
     
 @client.command(aliases=['disconnect', 'dismiss', 'dc'])
 async def leave(ctx, empty_queue=False):
