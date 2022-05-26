@@ -2,7 +2,11 @@ import discord
 from discord.ext import commands
 from discord import PCMAudio
 import os
+import random
 from dotenv import load_dotenv, find_dotenv
+from os import listdir
+from os.path import isfile, join
+
 
 
 if find_dotenv():
@@ -21,7 +25,10 @@ async def on_ready():
     print('Bot ID: {}'.format(client.user.id))
  
 def create_audio_source():
-    audio_source = PCMAudio(open('test2.wav', mode='rb'))
+    all_tracks = [f for f in listdir('music') if isfile(join('music', f))]
+    selected_track = random.choice(all_tracks)
+    print("Selected " + selected_track)
+    audio_source = PCMAudio(open(os.path.join('music',selected_track), mode='rb'))
     return audio_source
 
 @client.command(aliases=['paly', 'p', 'P', 'pap', 'pn', 'play_next', 'playnext'])
@@ -32,7 +39,6 @@ async def play(ctx):
 
     def after_play(error):
         if not voice_client.is_playing():
-            print("Starting voice_client.play")
             voice_client.play(create_audio_source(), after = after_play)
 
     print("Starting voice_client.play")
