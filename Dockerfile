@@ -1,5 +1,7 @@
 # syntax=docker/dockerfile:1
 
+# TOOD: this dockerfile is out of date. FFMPEG is now required to be installed to play mp3 files
+
 FROM python:3.8-slim-buster
 COPY requirements.txt requirements.txt
 RUN apt-get update -y && apt-get upgrade -y && apt-get install libopus0 -y && \
