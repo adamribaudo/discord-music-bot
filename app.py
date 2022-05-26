@@ -36,7 +36,7 @@ def create_audio_source():
 async def play(ctx):
     guild = ctx.guild
     voice_client: discord.VoiceClient = guild.voice_client
-    if voice_client is None: voice_client = await discord.utils.get(guild.voice_channels, name='music').connect()
+    if voice_client is None: voice_client = await discord.utils.get(guild.voice_channels, name='oooooooooooo').connect()
 
     def after_play(error):
         if not voice_client.is_playing():
