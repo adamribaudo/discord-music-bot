@@ -14,6 +14,11 @@ To kill a process:
 
 `kill -9 [id]`
 
+# Commands
+Only 2 commands are supported:
+`!play` will tell the bot to join the voice channel and play mp3's
+`!disconnect` will tell it to leave the voice channel. 
+
 # Example
 
 I built this so that I could host a Discord server that plays my music (I record under the moniker o8o8o8) non-stop. Feel free to join and listen! https://discord.gg/9Rg9qbRR
