@@ -13,3 +13,7 @@ To find a background process PID:
 To kill a process:
 
 `kill -9 [id]`
+
+# Example
+
+I built this so that I could host a Discord server that plays my music (I record under the moniker o8o8o8) non-stop. Feel free to join and listen! https://discord.gg/9Rg9qbRR
