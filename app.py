@@ -27,7 +27,8 @@ async def on_ready():
     print('Bot ID: {}'.format(client.user.id))
  
 def create_audio_source():
-    all_tracks = [f for f in listdir(MUSIC_FOLDER) if isfile(join(MUSIC_FOLDER, f))]
+    
+    all_tracks = [f for f in listdir(MUSIC_FOLDER) if (isfile(join(MUSIC_FOLDER, f)) and ".mp3" in  f)]
     selected_track = random.choice(all_tracks)
     print("Selected " + selected_track)
     audio_source = discord.FFmpegPCMAudio(source=os.path.join(MUSIC_FOLDER,selected_track),executable='ffmpeg')
