@@ -1,6 +1,6 @@
-# discord-music-bot
+# Overview
 
-Discord bot that plays a folder of MP3's through a voice channel on Discord.
+This is a Discord bot that plays a folder of MP3's through a voice channel on Discord.
 
 To run multiple instances of this app on a linux machine in the background:
 
